@@ -1,5 +1,5 @@
 # Тестирование веб-сайта для изучения английского
-[**Cсылка**](https://docs.google.com/spreadsheets/d/1Botq_L0R2Q_P92GRiKUytZOTkiKsJN44MQIDzYS2kgA/edit?usp=sharing)
+[**Cсылка на Google таблицу с баг-репортами**](https://docs.google.com/spreadsheets/d/1Botq_L0R2Q_P92GRiKUytZOTkiKsJN44MQIDzYS2kgA/edit?usp=sharing)
 
 ## Задача
 ### Протестировать функциональность приложения для изучения английского языка на предмет ошибок на основании технического задания
