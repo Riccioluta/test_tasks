@@ -1,0 +1,340 @@
+{
+	"info": {
+		"_postman_id": "ee80cd0b-9f01-4b3a-8762-dbd415d8e701",
+		"name": "Евтюхова Дарья Игоревна ТЗ AgentApp Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21667075"
+	},
+	"item": [
+		{
+			"name": "Получение токена",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"qa@qa.qa\",\r\n    \"password\": \"111\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Host}}/v1/users/obtain-token",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"v1",
+						"users",
+						"obtain-token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Текущий пользователь",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{Token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Host}}/v1/users/current_user",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"v1",
+						"users",
+						"current_user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создание водителя",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"first_name\": \"Люк\",\r\n  \"last_name\": \"Скайуокер\",\r\n  \"patronymic\": \"Дартвейдерович\",\r\n  \"birth_date\": \"1990-01-01\",\r\n  \"driving_experience_started\": \"2010-10-10\",\r\n  \"driver_licenses\": [\r\n    {\r\n      \"credential_type\": \"DRIVER_LICENSE\",\r\n      \"number\": \"012345\",\r\n      \"series\": \"1234\",\r\n      \"issue_date\": \"2010-10-10\"\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Host}}/v1/insured_objects/drivers",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"v1",
+						"insured_objects",
+						"drivers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создание собственника",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"last_name\": \"Скайуокер\",\r\n\t\"first_name\": \"Люк\",\r\n\t\"patronymic\": \"Дартвейдерович\",\r\n\t\"birth_date\": \"1990-01-01\",\r\n\t\"gender\": \"M\",\r\n\t\"credential\": [\r\n        {\r\n      \"credential_type\": \"RUSSIAN_INTERNAL_PASSPORT\",\r\n      \"issue_date\": \"2020-01-01\",\r\n      \"issue_point\": \"УФМС\",\r\n      \"issue_point_code\": \"654-321\",\r\n      \"number\": \"987654\",\r\n      \"series\": \"1111\"\r\n    }\r\n  ],\r\n  \"address\": [\r\n    {\r\n      \"address_query\": \"г Москва, ул. Никольская, д 15\",\r\n      \"address_type\": \"LEGAL_ADDRESS\",\r\n      \"region_kladr_id\": \"7800000000000\",\r\n      \"city_kladr_id\": \"7800000600000\"\r\n    },\r\n    {\r\n      \"address_query\": \"г Москва, ул. Никольская, д 15\",\r\n      \"address_type\": \"ACTUAL_ADDRESS\",\r\n      \"region_kladr_id\": \"7800000000000\",\r\n      \"city_kladr_id\": \"7800000600000\"\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Host}}/v1/insured_objects/owners/natural_persons",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"v1",
+						"insured_objects",
+						"owners",
+						"natural_persons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создание страхователя",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"last_name\": \"Скайуокер\",\r\n\t\"first_name\": \"Люк\",\r\n\t\"patronymic\": \"Дартвейдерович\",\r\n\t\"birth_date\": \"1990-01-01\",\r\n\t\"gender\": \"M\",\r\n\t\"credential\": [\r\n        {\r\n      \"credential_type\": \"RUSSIAN_INTERNAL_PASSPORT\",\r\n      \"issue_date\": \"2020-01-01\",\r\n      \"issue_point\": \"УФМС\",\r\n      \"issue_point_code\": \"654-321\",\r\n      \"number\": \"987654\",\r\n      \"series\": \"1111\"\r\n    }\r\n  ],\r\n  \"address\": [\r\n    {\r\n      \"address_query\": \"г Москва, ул. Никольская, д 15\",\r\n      \"address_type\": \"LEGAL_ADDRESS\",\r\n      \"region_kladr_id\": \"7800000000000\",\r\n      \"city_kladr_id\": \"7800000600000\"\r\n    },\r\n    {\r\n      \"address_query\": \"г Москва, ул. Никольская, д 15\",\r\n      \"address_type\": \"ACTUAL_ADDRESS\",\r\n      \"region_kladr_id\": \"7800000000000\",\r\n      \"city_kladr_id\": \"7800000600000\"\r\n    }\r\n  ],\r\n  \"contact\": [\r\n        {\r\n            \"contact_type\": \"PHONE\",\r\n            \"data\": \"+71111111111\"\r\n        },\r\n        {\r\n            \"contact_type\": \"EMAIL\",\r\n            \"data\": \"234@123.ru\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Host}}/v1/insured_objects/insurants/natural_persons",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"v1",
+						"insured_objects",
+						"insurants",
+						"natural_persons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создание автомобиля",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"car_model_id\": 864026180,\r\n  \"engine_power\": 211,\r\n  \"chassis_number\": \"1234\",\r\n  \"car_body_number\": \"м123мм499\",\r\n  \"vin_number\": \"WAUZZZ8T4BA037241\",\r\n  \"number_plate\": \"Р904МХ178\",\r\n  \"manufacturing_year\": 2010,\r\n  \"max_mass\": null,\r\n  \"credential\": [\r\n    {\r\n      \"credential_type\": \"VEHICLE_REGISTRATION\",\r\n      \"issue_date\": \"2010-11-01\",\r\n      \"number\": \"267461\",\r\n      \"series\": \"78УН\"\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Host}}/v3/insured_objects/cars",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"v3",
+						"insured_objects",
+						"cars"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Объедиинение в \"Объект страхования\"",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"drivers\": [\r\n    \"{{driver_id}}\"\r\n  ],\r\n  \"owner\": \"{{owner_id}}\",\r\n  \"car\": \"{{car_id}}\",\r\n  \"insurant\": \"{{insurer_id}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Host}}/v1/insured_objects/",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"v1",
+						"insured_objects",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создание договора",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"valid_from\": \"2022-09-25\",\r\n\t\"valid_to\": \"2023-09-24\",\r\n    \"insurance_period\": 6,\r\n    \"target_of_using\": 11,\r\n    \"owner_id\": \"{{owner_id}}\",\r\n    \"is_car_without_registration\": false,\r\n\t\"engine_power\": 115,\r\n\t\"has_car_trailer\": false,\r\n\t\"car_type\": \"B\",\r\n    \"address\": [\r\n    {\r\n      \"address_query\": \"г Москва, ул. Никольская, д 15\",\r\n      \"address_type\": \"LEGAL_ADDRESS\",\r\n      \"region_kladr_id\": \"7800000000000\",\r\n      \"city_kladr_id\": \"7800000600000\"\r\n    },\r\n    {\r\n      \"address_query\": \"г Москва, ул. Никольская, д 15\",\r\n      \"address_type\": \"ACTUAL_ADDRESS\",\r\n      \"region_kladr_id\": \"7800000000000\",\r\n      \"city_kladr_id\": \"7800000600000\"\r\n    }\r\n  ],\r\n    \"periods\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Host}}/v3/agreements/calculations",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"v3",
+						"agreements",
+						"calculations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Обновление Договора",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"insured_object\": \"{{insured_object}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Host}}/v1/agreements/{{agreement_id}}",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"v1",
+						"agreements",
+						"{{agreement_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Полный расчет",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{Token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Host}}/v1/agreements/{{agreement_id}}/results/{{ins_company_code}}",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"v1",
+						"agreements",
+						"{{agreement_id}}",
+						"results",
+						"{{ins_company_code}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "a3f1f7e29076fc6ecc4f3b49c7ee8e71c605a37c",
+			"value": "a3f1f7e29076fc6ecc4f3b49c7ee8e71c605a37c"
+		},
+		{
+			"key": "Token",
+			"value": "Token {{a3f1f7e29076fc6ecc4f3b49c7ee8e71c605a37c}}"
+		}
+	]
+}
